@@ -16,3 +16,25 @@
   .primary-workspace>.box{min-height:430px}
   .primary-workspace>.box>textarea{height:335px}
 }
+
+/* Use the whole viewport for the editing workspace instead of constraining it to
+   a narrow content column. Each editor owns its scrolling region so long text
+   never forces the surrounding page wider or taller. */
+main{width:100%;max-width:none;margin:0;padding:28px clamp(16px,2vw,32px) 64px}
+.intro{margin-bottom:24px}
+.intro h2{font-size:clamp(30px,3vw,50px);margin-top:10px}
+.intro>p{width:min(390px,32vw)}
+.box{min-width:0}
+.box>textarea{overflow:auto}
+.primary-workspace>.box{min-height:clamp(480px,62vh,720px);display:flex;flex-direction:column}
+.primary-workspace>.box>textarea{height:auto;min-height:0;flex:1;resize:none;overflow:auto}
+.supporting-workspace>.box{min-height:360px;display:flex;flex-direction:column}
+.supporting-workspace>.box>textarea{height:auto;min-height:0;flex:1;resize:none;overflow:auto}
+.instructions{min-height:360px!important}
+.instructions>textarea{height:auto}
+
+@media(max-width:850px){
+  main{padding:24px 14px 48px}
+  .intro>p{width:auto}
+  .primary-workspace>.box{min-height:430px}
+}
